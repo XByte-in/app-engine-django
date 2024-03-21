@@ -1,0 +1,16 @@
+body {
+    background-color: darkslategrey;
+}
+
+header#main-navigation{
+    background-color: slategray;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+#main-navigation>h1>a,
+#main-navigation>nav>a{
+    text-decoration: none;
+    color: lightblue
+}

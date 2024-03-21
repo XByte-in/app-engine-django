@@ -1,0 +1,28 @@
+
+#welcome{
+    background-color: grey;
+}
+#welcome>header{
+    display: flex;
+}
+#welcome>header>*{
+    padding-left: 2rem;    
+}
+
+#welcome>header>img{
+    border-radius: 2rem;
+}
+
+#latest-posts{
+    background-color: aqua;
+    color: red;
+    
+}
+#latest-posts>ul{
+    display: flex;
+    list-style: none;
+}
+
+#about{
+    background-color: lightgrey;
+}

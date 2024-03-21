@@ -1,0 +1,9 @@
+.post>a{
+    color: green;
+    text-decoration: none;
+    padding: 5rem;
+}
+
+.post>a>img{
+    border-radius: 2rem;
+}

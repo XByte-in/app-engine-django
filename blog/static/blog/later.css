@@ -1,0 +1,14 @@
+ul{
+    border-radius: 2rem;
+    background-color: aqua;
+}
+
+li{
+    padding: 1rem;
+    margin: auto;
+}
+
+li>a{
+    font-style: normal;
+    color: black;
+}

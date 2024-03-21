@@ -1,0 +1,33 @@
+form{
+    border-radius: 2rem;
+    width:90%;
+    max-width: 40rem;
+    padding: 1rem;
+    background-color: grey;
+}
+
+form>h1{
+    margin: auto;
+}
+
+form label{
+    display: block;
+    width: 90%;
+    font-weight: bold;
+}
+
+form input,
+form textarea,
+form select{
+    display: block;
+    width: 90%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+form button{
+    background-color: lightblue;
+    color: blue;
+    border-radius: 10px;
+    margin-top: 1rem;
+}

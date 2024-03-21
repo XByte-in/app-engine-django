@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Post-Detail{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "app.css" %}">
+<link rel="stylesheet" href="{% static "blog/post-detail.css" %}">
+
+{% endblock css_files %}
+
+{% block content %}
+    {% if form.errors %}
+    <div id="iferror">
+        !!! Failed to save the comment. Please check for errors. 
+        <a href="#idform">Fix!</a>
+    </div>
+    {% endif %}
+    <section>
+        <h2>{{the_post.title}}</h2>
+        <div>
+            {% for tag in the_post.tags.all %}
+                <span>#{{tag}}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            <form action="{% url "read-later" %}" method="post" id="idlater">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value={{the_post.id}}>
+                <button type="submit">
+                    {% if not marked %}
+                    Mark for Read Later
+                    {% else %}
+                    Remove from ReadLater
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+        <article>
+            <img src="{{the_post.image.url}}" alt="the_post.title" width = "300" height = "300">
+            <address><a href="mailto:{{the_post.author.email}}">{{the_post.author|title}}</a></address>
+            <div>Last updated <time>{{the_post.dated|date:"d M Y"}}</time></div>
+        </article>
+
+    </section>    
+    <main>
+        <p>{{the_post.content|linebreaks}}</p>
+    </main>
+
+    <section id="comments">
+        <p><h1>Below are user Comments</h1></p>
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <p>{{comment.username}}</p>
+                    <p>{{comment.text}}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <form action="{% url "post-detail-page" the_post.slug %}" method="post" id="idform">
+        {% csrf_token %}
+        <h1>Enter Your Comments</h1>
+        {% for field in form %}
+            <div class="form-control {% if field.errors %}invalid{% endif %}">
+                {{field.label}}
+                {{field}}
+                {{field.errors}}
+            </div>
+        {% endfor %}
+        <button type="submit">SaveComment</button>
+    </form>
+{% endblock content %}

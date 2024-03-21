@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Blog{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "app.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+{% endblock css_files %}
+
+{% block content %}
+
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/dp.png" %}" alt="PK - The Author" width = "200" height = "200">
+            <h2>KASAUPX BLOG</h2>
+            <p>Hi, I am PK and i came to existence before the movie.</p>
+        </header>
+        
+    </section>
+
+    <section id="latest-posts">
+        <h2>My latest quirks.</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/posts.html"%}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>Love to brag about how i do not like to brag all the time.</p>
+        <p>My Goal is to stop bragging, please stop bragging please.</p>
+    </section>
+
+{% endblock content %}

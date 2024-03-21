@@ -1,0 +1,11 @@
+section{
+    color: darkgreen;
+    background-color: goldenrod;
+}
+
+section>ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
